@@ -4,7 +4,6 @@ An easy to perform procedure to create a virtual machine
 
 ### Creation of a Virtual Machine (VM)
 
-The complete easyFlow pipeline was tested only on Linux Ubuntu operating system (16.04 LTS 64bit). 
 
 To create a VM running on Ubuntu, please follow these steps :
 
