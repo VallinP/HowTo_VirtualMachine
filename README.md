@@ -9,7 +9,7 @@ To create a VM running on Ubuntu, please follow these steps :
 
 1/ Download and install a VM creator (ie VMware >16, or Virtualbox)
 
-2/ Download Ubuntu 16.04 LTS 64bit at the offical website (https://releases.ubuntu.com/16.04/).
+2/ Download Ubuntu 16.04 LTS 64bit at the offical website (https://releases.ubuntu.com/16.04/ubuntu-16.04.7-desktop-amd64.iso).
 
 3/ Create a new virtual machine with at least 16Gb of allocated RAM, 4 cores CPU, 150Go of allocated hard drive disk space.
 
@@ -17,7 +17,7 @@ To create a VM running on Ubuntu, please follow these steps :
 
 5/ Create an admin account
 
-6/ If necessary, change regional parameters (system settings >text entry >Add >France)
+6/ If necessary, change regional parameters (system settings >text entry >Add >French)
 
 7/ Add terminal to your shortcuts
 
@@ -39,12 +39,11 @@ The easiest option for installing Java is using the version packaged with Ubuntu
 First, update the package index.
 
     sudo apt-get update
-    sudo apt full-upgrade
     sudo apt-get upgrade
 
 You can install the JDK with the following command:
 
-    sudo apt-get install default-jdk
+    sudo apt-get -y install default-jdk
 
 2/ Setting the JAVA_HOME Environment Variable
 
@@ -81,9 +80,9 @@ ________________________________________________________________________________
     sudo add-apt-repository ppa:marutter/c2d4u3.5
 
     sudo apt-get update
-    sudo apt full-upgrade
     sudo apt-get upgrade
-
+    sudo apt full-upgrade
+    
 ________________________________________________________________________________________________
 
 ### R software and R packages installation
@@ -94,6 +93,7 @@ ________________________________________________________________________________
     
 Update any R libraries installed via APT.
 
+    sudo apt update
     sudo apt full-upgrade
     sudo apt-get upgrade
 
@@ -118,9 +118,8 @@ for some reason it prompted me to do 'sudo apt-get -f install' after. I did and 
 
 #### R packages Installation
 
-##### Upadate librairies and start R
+##### Start R
 
-    sudo apt update
     sudo R
 
 ##### Load R packages list 
@@ -134,7 +133,9 @@ for some reason it prompted me to do 'sudo apt-get -f install' after. I did and 
 ##### Install missing packages
 
     new.packages <- packages[!(as.vector(packages) %in% as.vector(installed.packages()[,"Package"]))]
+    
     length(new.packages)
+    
     if(length(new.packages)) install.packages(new.packages, dependencies = TRUE)
 
 #########################
@@ -144,14 +145,19 @@ for some reason it prompted me to do 'sudo apt-get -f install' after. I did and 
 ##### Install Bioconductor
 
     source("https://bioconductor.org/biocLite.R")
+    
     biocLite()                  ## R version 3.0 or later
 
 ##### Install missing packages
 
     new.packages <- packages[!(as.vector(packages) %in% as.vector(installed.packages()[,"Package"]))]
+    
     length(new.packages)
+    
     for (i in 1:length(new.packages)) {
+      
       biocLite(new.packages[i], dependencies = TRUE)
+    
     }
 
 ###################
@@ -161,23 +167,37 @@ for some reason it prompted me to do 'sudo apt-get -f install' after. I did and 
 ##### Install missing packages
 
     new.packages <- packages[!(packages %in% installed.packages()[,"Package"])]
+    
     library("devtools")
+    
     source("https://bioconductor.org/biocLite.R")
+    
     biocLite("flowCore", dependencies = TRUE)
+    
     biocLite("impute", dependencies = TRUE)
+    
     library("devtools")
+    
     install_github("ramnathv/rCharts")
+    
     install_github("nolanlab/Rclusterpp")
+    
     install_github("tchitchek-lab/SPADEVizR")
+    
     install_github("kevinushey/data.table.extras")
+    
     install_github("mul118/shinyGridster")
+    
     install_github("kevinushey/Kmisc")
+    
     install_github("vqv/ggbiplot")
+    
     install_github('daattali/shinyjs')
 
-Quit R software and start a terminal
+Quit R software and start a new terminal
 
     cd ./Documents/Scripts/RchyOptimyx/
+    
     sudo su -c "R -e \"source('./install_RchyOptimyx.R')\""
 
 ________________________________________________________________________________________________
@@ -185,13 +205,16 @@ ________________________________________________________________________________
 ### Install RStudio 
 
 Download Rstudio and install it.
+You can find newer versions at https://www.rstudio.com/products/rstudio/download/#download
 
     wget https://download1.rstudio.org/desktop/xenial/amd64/rstudio-1.2.1335-amd64.deb
+    
     sudo gdebi rstudio-1.2.1335-amd64.deb
 
 For rJava and ReporteRs installation you also need to do this:
 
     #sudo apt-get install libxml2-dev
+    
     sudo R CMD javareconf
 
 Install RStudio Server
@@ -203,6 +226,7 @@ Allow Firewall port 8787 :
 Download the latest RStudio Server — consult RStudio Downloads page to get the URL for the latest version. Then install the file you downloaded. These next two lines are using the latest version as of writing this post.
 
     wget https://download2.rstudio.org/rstudio-server-1.1.463-amd64.deb 
+    
     sudo gdebi rstudio-server-1.1.463-amd64.deb 
 
 Done! By default, Rstudio hostname -I uses port 8787, so to access RStudio go to 
@@ -227,6 +251,7 @@ To install Shiny Server, first install the shiny package:
 Just like when we installed RStudio, again we need to get the URL of the latest Shiny Server from the Shiny Server downloads page, download the file, and then install it. These are the two commands using the version that is most up-to-date right now:
 
     wget https://download3.rstudio.org/ubuntu-12.04/x86_64/shiny-server-1.5.6.875-amd64.deb
+    
     sudo gdebi shiny-server-1.5.6.875-amd64.deb
 
 Shiny Server is now installed and running. Assuming there were no problems, if you go to http://123.456.1.2:3838/ you should see Shiny Server’s default homepage, which includes some instructions and two Shiny apps. If you see an error on the bottom Shiny app, it’s probably because you don’t have the rmarkdown R package installed (the instructions on the default Shiny Server page mention this). After installing rmarkdown in R, the bottom Shiny app should work as well. Don’t forget to install rmarkdown so that it will be available to all users as described above. I suggest you read through the instructions page at http://123.456.1.2:3838/.
@@ -241,23 +266,27 @@ To install or update nvm, you can use the install script using curl:
 
 The script clones the nvm repository to ~/.nvm and adds the source line to your profile (~/.bash_profile, ~/.zshrc, ~/.profile, or ~/.bashrc).
 
-Note: If the environment variable $XDG_CONFIG_HOME is present, it will place the nvm files there.
-    
-    export NVM_DIR="${XDG_CONFIG_HOME/:-$HOME/.}nvm"
-    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+Note: If the environment variable $XDG_CONFIG_HOME is present, it will place the nvm files there :
+   export NVM_DIR="${XDG_CONFIG_HOME/:-$HOME/.}nvm"
+   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
 Note: You can add --no-use to the end of the above script (...nvm.sh --no-use) to postpone using nvm until you manually use it.
 
 You can customize the install source, directory, profile, and version using the NVM_SOURCE, NVM_DIR, PROFILE, and NODE_VERSION variables. Eg: curl ... | 
 NVM_DIR="path/to/nvm". Ensure that the NVM_DIR does not contain a trailing slash.
 
-NB. The installer can use git, curl, or wget to download nvm, whatever is available.
+Note: The installer can use git, curl, or wget to download nvm, whatever is available.
 
 Note: On Linux, after running the install script, if you get nvm: command not found or see no feedback from your terminal after you type:
 
     command -v nvm
 
-simply close your current terminal, open a new terminal, and try verifying again.
+
+Close your current terminal, 
+
+Open a new terminal, 
+
+And try verifying again.
 
 To install a specific version of node:
     
@@ -271,10 +300,14 @@ ________________________________________________________________________________
 To install FFTW3, download the package from the FFTW3 download page and decompress it: 
 
     mkdir ~/software
+    
     cd ~/software
+    
     wget http://www.fftw.org/fftw-3.3.8.tar.gz 
     #ftp://ftp.fftw.org/pub/fftw/fftw-3.3.8.tar.gz
+    
     tar -zxvf fftw-3.3.8.tar.gz
+    
     cd fftw-3.3.8
 
 Build and Install  FFTW3
@@ -284,7 +317,9 @@ Serial version only
 Then configure, make and install: 
 
     ./configure --prefix=$HOME/usr --enable-shared=yes
-    make --jobs=8
+    
+    make --jobs=nThread # Replace nThread by current nThread value
+    
     make install
 
 #### 2- Install FIt-SNE
@@ -298,6 +333,7 @@ install the git command
 clone Fit-SNE repository in the current directory  
     
     git clone https://github.com/KlugerLab/Fit-SNE.git
+    
     cd Fit-SNE
 
 build from source
@@ -325,7 +361,7 @@ Start a terminal
 
 ## Install Python
 
-1- Download the Anaconda Bash Script
+1- Download the Miniconda Bash Script
 
     cd /tmp
     
@@ -333,7 +369,7 @@ Start a terminal
     
     sudo  bash Miniconda3-latest-Linux-x86_64.sh
     
-    sudo chmod 777 -R /home/"your profile"/miniconda3
+    sudo chmod 777 -R /home/"username"/miniconda3
 
 2- Using Bioconda
 
