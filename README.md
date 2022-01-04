@@ -39,6 +39,8 @@ The easiest option for installing Java is using the version packaged with Ubuntu
 First, update the package index.
 
     sudo apt-get update
+    sudo apt full-upgrade
+    sudo apt-get upgrade
 
 You can install the JDK with the following command:
 
@@ -74,55 +76,21 @@ ________________________________________________________________________________
 ### Linux libraries installation
 
     sudo apt install libssl-dev curl
-    sudo apt-get install libcurl4-openssl-dev 
-    sudo apt-get install libcurl4-gnutls-dev
-    sudo apt-get install libmagick++-dev
-    sudo apt-get install libcairo2-dev
-    sudo apt-get install unixodbc-dev
-    sudo apt-get install libpq-dev
-    sudo apt-get install libxml2-dev
-    sudo apt-get install libv8-3.14-dev
-    sudo apt-get install libudunits2-dev
-    sudo apt-get install libpoppler-cpp-dev
-    sudo apt-get install libnetcdf-dev
-    sudo apt-get install libgsl-dev
-    sudo apt-get install libgdal-dev
-    sudo apt-get install libgeos-dev
-    sudo apt-get install jags
-    sudo apt-get install libglu1-mesa-dev freeglut3-dev mesa-common-dev 
-    sudo apt-get install libgmp3-dev
-    sudo apt-get install libfftw3-dev
-    sudo apt-get install libcr-dev mpich mpich-doc
+    sudo apt-get -y install libcurl4-openssl-dev libmagick++-dev libcairo2-dev unixodbc-dev libpq-dev libxml2-dev libv8-3.14-dev libudunits2-dev libpoppler-cpp-dev libnetcdf-dev libgsl-dev libgdal-devv libgeos-dev jags libglu1-mesa-dev freeglut3-dev mesa-common-dev libgmp3-dev libfftw3-dev libcr-dev mpich mpich-doc aptitude build-essential fort77 xorg-dev liblzma-dev libblas-dev gfortran gcc-multilib gobjc++ libreadline-dev texlive-latex-base libjpeg62 gdebi-core Nginx t1-xfree86-nonfree ttf-xfree86-nonfree ttf-xfree86-nonfree-syriac xfonts-75dpi xfonts-100dpi
     
-    sudo apt-get install aptitude
     sudo add-apt-repository ppa:marutter/c2d4u3.5
 
+    sudo apt-get update
     sudo apt full-upgrade
-    
     sudo apt-get upgrade
 
 ________________________________________________________________________________________________
 
 ### R software and R packages installation
-
-#### Install and update Linux libraries
-
-    sudo apt-get install build-essential
-    sudo apt-get install fort77
-    sudo apt-get install xorg-dev
-    sudo apt-get install liblzma-dev  libblas-dev gfortran
-    sudo apt-get install gcc-multilib
-    sudo apt-get install gobjc++
-    sudo apt-get install aptitude
-    sudo aptitude install libreadline-dev
-    sudo aptitude install libcurl4-openssl-dev
-    sudo apt-get install default-jdk
-    sudo apt-get install texlive-latex-base
-    sudo apt-get install libcairo2-dev 
     
 #### Install r-base for ubuntu
 
-    sudo apt-get install r-base
+    sudo apt-get -y install r-base
     
 Update any R libraries installed via APT.
 
@@ -144,10 +112,6 @@ Do not forget to update your PATH
 
     export PATH=~/R/R-3.4.0/bin:$PATH
     export RSTUDIO_WHICH_R=~/R/R-3.4.0/bin/R
-
-Install libjpeg62
-
-    sudo apt-get install libjpeg62
 
 for some reason it prompted me to do 'sudo apt-get -f install' after. I did and it worked...
 
@@ -218,18 +182,7 @@ Quit R software and start a terminal
 
 ________________________________________________________________________________________________
 
-### Install Nginx
-
-    sudo apt-get update
-    sudo apt-get -y install nginx
-
-________________________________________________________________________________________________
-
 ### Install RStudio 
-
-Let’s install some pre-requisites:
-
-    sudo apt-get -y install gdebi-core
 
 Download Rstudio and install it.
 
@@ -238,12 +191,8 @@ Download Rstudio and install it.
 
 For rJava and ReporteRs installation you also need to do this:
 
-    sudo apt-get install libxml2-dev
+    #sudo apt-get install libxml2-dev
     sudo R CMD javareconf
-
-Install fonts as well.
-
-    sudo apt-get install t1-xfree86-nonfree ttf-xfree86-nonfree ttf-xfree86-nonfree-syriac xfonts-75dpi xfonts-100dpi
 
 Install RStudio Server
 
@@ -285,12 +234,6 @@ Shiny Server is now installed and running. Assuming there were no problems, if y
 ________________________________________________________________________________________________
 
 ### Install nodejs
-
-Install & Update script
-    
-    Install curl
-    sudo apt-get install libcurl4-openssl-dev
-    sudo apt install curl
 
 To install or update nvm, you can use the install script using curl:
 
@@ -385,8 +328,11 @@ Start a terminal
 1- Download the Anaconda Bash Script
 
   cd /tmp
+  
   sudo curl -O https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh | bash
+  
   sudo  bash Miniconda3-latest-Linux-x86_64.sh
+  
   sudo chmod 777 -R /home/"your profile"/miniconda3
 
 2- Using Bioconda
@@ -396,7 +342,9 @@ After installing conda you will need to add the bioconda channel as well as the 
 The conda-forge channel contains many general-purpose packages not already found in the defaults channel.
 
   conda config --add channels defaults
+  
   conda config --add channels bioconda
+  
   conda config --add channels conda-forge
 
 3- Install Bioconda packages
@@ -417,19 +365,26 @@ Bioconda is now enabled, so any packages on the bioconda channel can be installe
 ### Install TensorFlow
    
    sudo pip3 install --upgrade tensorflow
+   
+   pip install --upgrade tensorflow
+
 
 ### Install TensorFlowJS
   
   sudo pip3 install tensorflowjs
+  
+  pip install tensorflowjs
 
 ### Install Jupyter
   
   sudo pip3 install jupyter
+  
+  pip install jupyter
 
 ### Install Sypder
   
-  sudo apt-get install spyder3
-
+  sudo apt-get -y install spyder3
+  
 ### Install reticulate (modified source code)
 
   cd ~/software
@@ -452,12 +407,16 @@ modify the code source to allow install package from bioconda source
 ### install SciPy
   
   conda_install("r-reticulate", "bwa", "python-igraph", "louvain", "numpy", "scipy", "pandas", "matplotlib", "Keras", "seaborn", "scikit-learn", "statsmodels", "numba", "pytables", "bioconda")
+  
   conda_install("r-reticulate", "scanpy", forge = FALSE, pip = FALSE, bioconda = TRUE)
 
 ### import SciPy (it will be automatically discovered in "r-reticulate")
   
   scipy <- import("scipy")
+  
   use_condaenv("r-reticulate", conda = "/home/vallin/miniconda3/condabin/conda", required = T)
+
+
 
 
 source : 
