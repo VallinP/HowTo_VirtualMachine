@@ -327,13 +327,13 @@ Start a terminal
 
 1- Download the Anaconda Bash Script
 
-  cd /tmp
-  
-  sudo curl -O https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh | bash
-  
-  sudo  bash Miniconda3-latest-Linux-x86_64.sh
-  
-  sudo chmod 777 -R /home/"your profile"/miniconda3
+    cd /tmp
+    
+    sudo curl -O https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh | bash
+    
+    sudo  bash Miniconda3-latest-Linux-x86_64.sh
+    
+    sudo chmod 777 -R /home/"your profile"/miniconda3
 
 2- Using Bioconda
 
@@ -353,9 +353,13 @@ Browse the packages to see what’s available.
 Bioconda is now enabled, so any packages on the bioconda channel can be installed into the current conda environment:
 
   conda install bwa
+  
   conda install -c conda-forge python-igraph louvain
+  
   conda install numpy scipy pandas matplotlib Keras
+  
   conda install seaborn scikit-learn statsmodels numba pytables
+  
   conda install -c bioconda scanpy
 
 ### Install python3-pip
@@ -388,12 +392,15 @@ Bioconda is now enabled, so any packages on the bioconda channel can be installe
 ### Install reticulate (modified source code)
 
   cd ~/software
+  
   git clone https://github.com/rstudio/reticulate
 
 modify the code source to allow install package from bioconda source
   
   cd ./reticulate
+  
   sudo R
+  
   install.packages("./", repos = NULL, type="source")
 
 ### Create a new conda env inside R
