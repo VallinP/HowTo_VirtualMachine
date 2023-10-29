@@ -156,7 +156,7 @@ for some reason it prompted me to do 'sudo apt-get -f install' after. I did and 
     
     for (i in 1:length(new.packages)) {
       
-      BiocManager::install(new.packages[i], dependencies = TRUE)
+      BiocManager::install(new.packages[i])
     
     }
 
