@@ -74,8 +74,10 @@ ________________________________________________________________________________
 
 ### Linux libraries installation
 
-    sudo apt install libssl-dev curl
-    sudo apt-get -y install libcurl4-openssl-dev libmagick++-dev libcairo2-dev unixodbc-dev libpq-dev libxml2-dev libv8-3.14-dev libudunits2-dev libpoppler-cpp-dev libnetcdf-dev libgsl-dev libgdal-dev libgeos-dev jags libglu1-mesa-dev freeglut3-dev mesa-common-dev libgmp3-dev libfftw3-dev libcr-dev mpich mpich-doc aptitude build-essential fort77 xorg-dev liblzma-dev libblas-dev gfortran gcc-multilib gobjc++ libreadline-dev texlive-latex-base libjpeg62 gdebi-core t1-xfree86-nonfree ttf-xfree86-nonfree ttf-xfree86-nonfree-syriac xfonts-75dpi xfonts-100dpi Nginx libgit2-dev
+    sudo apt install -y libssl-dev curl
+    sudo apt-get -y install libcurl4-openssl-dev libmagick++-dev libcairo2-dev unixodbc-dev libpq-dev libxml2-dev libudunits2-dev libpoppler-cpp-dev libnetcdf-dev libgsl-dev libgdal-dev libgeos-dev jags libglu1-mesa-dev freeglut3-dev mesa-common-dev libgmp3-dev libfftw3-dev mpich mpich-doc aptitude build-essential fort77 xorg-dev liblzma-dev libblas-dev gfortran gcc-multilib gobjc++ libreadline-dev texlive-latex-base libjpeg62 gdebi-core t1-xfree86-nonfree ttf-xfree86-nonfree ttf-xfree86-nonfree-syriac xfonts-75dpi xfonts-100dpi libgit2-dev
+
+    sudo apt-get -y install Nginx libv8-3.14-dev libcr-dev 
     
     sudo add-apt-repository ppa:marutter/c2d4u3.5
 
