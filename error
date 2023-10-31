@@ -1,0 +1,11 @@
+wget https://cran.r-project.org/bin/linux/ubuntu/focal-cran40/r-base-core_4.0.0-1.2004.0_amd64.deb
+
+sudo dpkg -i r-base-core_4.0.0-1.2004.0_amd64.deb
+
+sudo apt update
+
+sudo apt -y --fix-broken install
+
+sudo apt upgrade
+
+sudo apt autoremove -y
