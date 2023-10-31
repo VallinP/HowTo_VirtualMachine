@@ -1,20 +1,23 @@
-wget https://cran.r-project.org/bin/linux/ubuntu/focal-cran40/r-base-core_4.0.0-1.2004.0_amd64.deb
+sudo apt install build-essential
 
-sudo dpkg -i r-base-core_4.0.0-1.2004.0_amd64.deb
+wget https://cran.r-project.org/bin/linux/ubuntu/focal-cran40/r-base-core_4.2.3-1.2004.0_amd64.deb
 
-sudo apt update
+sudo dpkg -i r-base-core_4.2.3-1.2004.0_amd64.deb
 
 sudo apt -y --fix-broken install
+
+sudo apt update
 
 sudo apt upgrade
 
 sudo apt autoremove -y
 
 sudo R
+'R version 4.2.3 (2023-03-15) -- "Shortstop Beagle"
 
 install.packages("BiocManager")
 
-BiocManager::install(version = "3.11", force=TRUE)
+BiocManager::install(version=3.16)
 
 BiocManager::install("cytolib")
 
