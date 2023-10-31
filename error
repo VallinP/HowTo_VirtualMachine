@@ -9,3 +9,12 @@ sudo apt -y --fix-broken install
 sudo apt upgrade
 
 sudo apt autoremove -y
+
+sudo R
+
+install.packages("BiocManager")
+
+BiocManager::install(version = "3.11", force=TRUE)
+
+BiocManager::install("cytolib")
+
