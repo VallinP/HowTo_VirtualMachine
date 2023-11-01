@@ -20,4 +20,37 @@ install.packages("BiocManager")
 BiocManager::install(version=3.16)
 
 BiocManager::install("cytolib")
+BiocManager::install("flowCore")
+BiocManager::install("FlowSOM")
+
+.....
+
+" Installer les packages sur CRAN et Bioconductor
+
+new.packages <- packages[!(as.vector(packages) %in% as.vector(installed.packages()[,"Package"]))]
+
+length(new.packages)
+
+for (i in 1:length(new.packages)) {
+  
+  BiocManager::install(as.character(factor(new.packages[i])))
+
+}
+.....
+
+" Installer les packages sur github
+
+new.packages
+library("devtools")
+install_github("ramnathv/rCharts")
+install_github("tchitchek-lab/SPADEVizR")
+install_github("vqv/ggbiplot")
+
+wget https://www.bioconductor.org/packages//2.11/bioc/src/contrib/flowType_1.4.0.tar.gz
+sudo R
+install.packages("/home/vml/Documents/flowType_1.4.0.tar.gz", repos = NULL, type="source")
+
+wget https://www.bioconductor.org/packages//2.11/bioc/src/contrib/RchyOptimyx_1.2.0.tar.gz
+sudo R
+install.packages("/home/vml/Documents/RchyOptimyx_1.2.0.tar.gz", repos = NULL, type="source")
 
