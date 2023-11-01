@@ -55,3 +55,9 @@ wget https://www.bioconductor.org/packages/3.1/bioc/src/contrib/RchyOptimyx_2.8.
 sudo R
 install.packages("/home/vml/Documents/RchyOptimyx_2.8.0.tar.gz", repos = NULL, type="source")
 
+"Installer les packages Bioconductor manquant en 3.1
+"impossible d'installer flowUtils (3.1 ou 3.2
+
+
+"Rstudio
+https://download1.rstudio.org/electron/jammy/amd64/rstudio-2023.09.1-494-amd64.deb
